@@ -1,0 +1,14 @@
+version: '3'
+services:
+  frontend:
+    build: ./Frontend
+    ports:
+      - "80:80"
+    depends_on:
+      - mongo
+    environment:
+      MONGO_URI: mongodb://mongo:27017/userdb
+  mongo:
+    image: mongo
+    ports:
+      - "27017:27017"
